@@ -1,0 +1,8 @@
+<!-- Bootstrap core CSS     -->
+<link href="${context}/css/bootstrap.min.css" rel="stylesheet" />
+<!--  Material Dashboard CSS    -->
+<link href="${context}/css/material-dashboard.css" rel="stylesheet" />
+<!--  CSS for Demo Purpose, don't include it in your project     -->
+<link href="${context}/css/demo.css" rel="stylesheet" />
+<!--     Fonts and icons     -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons" />
