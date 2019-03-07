@@ -36,6 +36,7 @@ public class LoginDaoImpl implements LoginDao {
                     .setString("pass", password);
 
             user = (PosUser) query.list().get(0);
+            System.out.println("status --- " + user.getStatus().getDescription());
             return true;
         }catch (Exception e){
             user = null;
