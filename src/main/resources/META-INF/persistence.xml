@@ -5,31 +5,19 @@
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="biller.webapp">
 
-    <class>com.biller.webapp.entity.Building</class>
-    <class>com.biller.webapp.entity.UserType</class>
-    <class>com.biller.webapp.entity.UserRole</class>
-    <class>com.biller.webapp.entity.Device</class>
-    <class>com.biller.webapp.entity.UserCategory</class>
-    <class>com.biller.webapp.entity.Status</class>
-    <class>com.biller.webapp.entity.Users</class>
-    <class>com.biller.webapp.entity.DeviceLocation</class>
-    <class>com.biller.webapp.entity.DeviceLocationHistory</class>
-    <class>com.biller.webapp.test.BuildingEntity</class>
-    <class>com.biller.webapp.test.DeviceEntity</class>
-    <class>com.biller.webapp.test.DeviceLocationEntity</class>
-    <class>com.biller.webapp.test.DeviceLocationHistoryEntity</class>
-    <class>com.biller.webapp.test.StatusEntity</class>
-    <class>com.biller.webapp.test.UserCategoryEntity</class>
-    <class>com.biller.webapp.test.UserRoleEntity</class>
-    <class>com.biller.webapp.test.UserTypeEntity</class>
-    <class>com.biller.webapp.test.UsersEntity</class>
+    <class>com.biller.webapp.mapping.PosPage</class>
+    <class>com.biller.webapp.mapping.PosStatus</class>
+    <class>com.biller.webapp.mapping.PosUser</class>
+    <class>com.biller.webapp.mapping.PosUserparam</class>
+    <class>com.biller.webapp.mapping.PosUserrole</class>
+
 
     <properties>
       <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
-      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/geoloc_db"/>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/pos"/>
       <property name="hibernate.connection.autocommit" value="false"/>
       <property name="hibernate.connection.username" value="root"/>
-      <property name="hibernate.connection.password" value=""/>
+      <property name="hibernate.connection.password" value="password"/>
       <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
       <property name="hibernate.connection.CharSet" value="utf8"/>
       <property name="hibernate.connection.characterEncoding" value="utf8"/>

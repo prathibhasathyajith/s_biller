@@ -4,7 +4,6 @@ import com.biller.webapp.entity.Building;
 import com.biller.webapp.entity.Device;
 import com.biller.webapp.entity.Status;
 import com.biller.webapp.entity.Users;
-import com.biller.webapp.test.StatusEntity;
 import com.biller.webapp.web.dao.BuildDao;
 import com.biller.webapp.web.dto.*;
 import org.hibernate.Criteria;
@@ -98,7 +97,7 @@ public class BuildDaoImpl implements BuildDao {
 
     public ArrayList<StatusDataBean> getStatusListDropDown() throws Exception {
         Session session = sessionFactory.getCurrentSession();
-        Iterator iterator = session.createCriteria(StatusEntity.class)
+        Iterator iterator = session.createCriteria(Status.class)
                 .setProjection(Projections.projectionList()
                         .add(Projections.property("statusId"))
                         .add(Projections.property("status"))
