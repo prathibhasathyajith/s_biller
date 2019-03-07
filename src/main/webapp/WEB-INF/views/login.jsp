@@ -53,8 +53,9 @@
                                     </div>
                                 </div>
                                 <p class="category text-center">
-                                    Or Be Classical
+                                    <%--Or Be Classical--%>
                                     ${errorMessage}
+                                ${requestScope.webLoginBean.message}
                                 </p>
                                 <div class="card-content">
                                     <div class="input-group">

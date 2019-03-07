@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="context" value="${pageContext.request.contextPath}"/>
 <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
@@ -48,7 +50,7 @@
                 </li>
 
                 <li>
-                    <a href="#">Log out</a>
+                    <a href="${context}/LogoutNow">Log out</a>
                 </li>
             </ul>
         </li>

@@ -49,6 +49,14 @@
                 <div class="container-fluid">
                     <h1>Dashboard</h1>
                 </div>
+                <p>
+
+                    <c:forEach items="${page}" var="item">
+                        <c:out value="${item.value}"></c:out>
+                        <c:out value="${item.key}"></c:out>
+                    </c:forEach>
+
+                </p>
             </div>
             <!--   footer -->
             <jsp:include page="link/footer.jsp" ></jsp:include>

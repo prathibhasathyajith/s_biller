@@ -1,5 +1,6 @@
 package com.biller.webapp.web.controller;
 
+import com.biller.webapp.util.MessageVarList;
 import com.biller.webapp.web.dto.SessionBean;
 import com.biller.webapp.web.dto.WebLoginBean;
 import com.biller.webapp.web.service.LoginService;
@@ -37,37 +38,38 @@ public class WebAdminLoginController {
     private SessionBean sessionBean;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ModelAndView loginUser(HttpServletRequest request,@ModelAttribute WebLoginBean webLoginBean) throws Exception {
-        System.out.println(webLoginBean);
-        boolean b = loginService.authorizeWebUser(webLoginBean);
-        ModelAndView andView = new ModelAndView();
-        if(b){
-            HttpSession session = request.getSession(true);
+    public ModelAndView loginUser(HttpServletRequest request,@ModelAttribute WebLoginBean inputBean) throws Exception {
+        System.out.println(inputBean);
 
-            sessionBean.setSystemUser(webLoginBean);
-            session.setAttribute("SYSTEMUSER", webLoginBean);
+        HttpSession session = request.getSession(true);
+        ServletContext contextSession = request.getSession().getServletContext();
+        contextSession.setAttribute(MessageVarList.HTTPSESSION_PAGEMAP , null);
+
+        String message = loginService.validateInputs(inputBean,request);
+        System.out.println("--------- login message ------------- ");
+        System.out.println("message = " + message);
+
+        ModelAndView andView = new ModelAndView();
+
+        if(message.isEmpty()){
+
+            session.setAttribute(MessageVarList.HTTPSESSION_SYSTERMUSER, inputBean);
 
             HashMap<String, String> userMap = null;
-
-            ServletContext sc = request.getSession().getServletContext();
-            userMap = (HashMap<String, String>) sc.getAttribute("USERMAP");
+            userMap = (HashMap<String, String>) contextSession.getAttribute(MessageVarList.HTTPSESSION_USERMAP);
             if (userMap == null) {
                 userMap = new HashMap<String, String>();
             }
-            userMap.put(webLoginBean.getUserName(), session.getId());
-            sc.setAttribute("USERMAP", userMap);
-
-            System.out.println("session Bean - " + sessionBean);
-            System.out.println("session - " +session.getAttribute("SYSTEMUSER"));
+            userMap.put(inputBean.getUserName(), session.getId());
+            contextSession.setAttribute(MessageVarList.HTTPSESSION_USERMAP, userMap);
 
             andView.setViewName("redirect:/dashboard");
-            andView.addObject(webLoginBean);
-            httpServletRequest.getSession().setAttribute("webLoginBean", webLoginBean);
+            andView.addObject(inputBean);
 
         }else{
-            webLoginBean.setMessage("Invalid login credetionls..!");
+            inputBean.setMessage(message);
             andView.setViewName("login");
-            andView.addObject(webLoginBean);
+            andView.addObject(inputBean);
         }
 
        return andView;

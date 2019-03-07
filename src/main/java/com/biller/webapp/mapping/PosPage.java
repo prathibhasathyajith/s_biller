@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 public class PosPage {
     private String code;
     private String description;
+    private String url;
     private Timestamp createTime;
     private PosStatus status;
 
@@ -32,6 +33,16 @@ public class PosPage {
     }
 
     @Basic
+    @Column(name = "url", nullable = true, length = 45)
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @Basic
     @Column(name = "create_time", nullable = true)
     public Timestamp getCreateTime() {
         return createTime;
@@ -50,6 +61,7 @@ public class PosPage {
 
         if (code != null ? !code.equals(posPage.code) : posPage.code != null) return false;
         if (description != null ? !description.equals(posPage.description) : posPage.description != null) return false;
+        if (url != null ? !url.equals(posPage.url) : posPage.url != null) return false;
         if (createTime != null ? !createTime.equals(posPage.createTime) : posPage.createTime != null) return false;
 
         return true;
@@ -59,6 +71,7 @@ public class PosPage {
     public int hashCode() {
         int result = code != null ? code.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
+        result = 31 * result + (url != null ? url.hashCode() : 0);
         result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
         return result;
     }

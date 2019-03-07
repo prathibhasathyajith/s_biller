@@ -1,5 +1,6 @@
 package com.biller.webapp.intercepter;
 
+import com.biller.webapp.util.MessageVarList;
 import com.biller.webapp.web.dto.SessionBean;
 import com.biller.webapp.web.dto.WebLoginBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,13 @@ public class CheckAccessInteceptor implements HandlerInterceptor {
 
         if (session != null) {
 
-            if (session.getAttribute("SYSTEMUSER") != null) {
+            if (session.getAttribute(MessageVarList.HTTPSESSION_SYSTERMUSER) != null) {
 
                 WebLoginBean user = new WebLoginBean();
-                user = (WebLoginBean)session.getAttribute("SYSTEMUSER");
+                user = (WebLoginBean)session.getAttribute(MessageVarList.HTTPSESSION_SYSTERMUSER);
 
-                ServletContext sc = request.getSession().getServletContext();
-                HashMap<String, String> userMap = (HashMap<String, String>) sc.getAttribute("USERMAP");
+                ServletContext context = request.getSession().getServletContext();
+                HashMap<String, String> userMap = (HashMap<String, String>) context.getAttribute(MessageVarList.HTTPSESSION_USERMAP);
                 String sessionId = userMap.get(user.getUserName());
 
                 if (sessionId.equals(request.getSession(false).getId())) {
@@ -64,10 +65,6 @@ public class CheckAccessInteceptor implements HandlerInterceptor {
         } else {
             status = false;
         }
-//        }
-//        else {
-//            status = true;
-//        }
         return status;
     }
 

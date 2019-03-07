@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="" />
         <datasource-mapping>
-          <factory-entry name="biller.webapp" value="b8748204-025b-4e5a-835d-bec1eb6b8c79" />
+          <factory-entry name="biller.webapp" value="38370d2f-b04a-475b-b995-c0a595a55b6b" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/main/resources/META-INF/persistence.xml" />
       </configuration>
