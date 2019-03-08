@@ -51,10 +51,10 @@
                 </div>
                 <p>
 
-                    <c:forEach items="${page}" var="item">
-                        <c:out value="${item.value}"></c:out>
-                        <c:out value="${item.key}"></c:out>
-                    </c:forEach>
+                    <%--<c:forEach items="${page}" var="item">--%>
+                        <%--<c:out value="${item.value}"></c:out>--%>
+                        <%--<c:out value="${item.key}"></c:out>--%>
+                    <%--</c:forEach>--%>
 
                 </p>
             </div>

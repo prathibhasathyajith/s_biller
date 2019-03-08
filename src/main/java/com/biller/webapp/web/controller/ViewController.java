@@ -36,22 +36,27 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public ModelAndView dashboard(HttpServletRequest request,Model model) {
-
-        ServletContext contextSession = request.getSession().getServletContext();
-        HttpSession session = request.getSession(true);
-
-        HashMap<String, String> pageMap = (HashMap<String, String>) contextSession.getAttribute(MessageVarList.HTTPSESSION_PAGEMAP);
-        session.setAttribute("TESTS",pageMap);
-
-        model.addAttribute("page",pageMap);
-
-        ModelAndView andView = new ModelAndView();
-        andView.setViewName("dashboard");
-        andView.addObject("test",model);
-
-        return andView;
+    public String dashboard() {
+        return "dashboard";
     }
+
+//    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
+//    public ModelAndView dashboard(HttpServletRequest request,Model model) {
+//
+//        ServletContext contextSession = request.getSession().getServletContext();
+//        HttpSession session = request.getSession(true);
+//
+//        HashMap<String, String> pageMap = (HashMap<String, String>) contextSession.getAttribute(MessageVarList.HTTPSESSION_PAGEMAP);
+//        session.setAttribute("TESTS",pageMap);
+//
+//        model.addAttribute("page",pageMap);
+//
+//        ModelAndView andView = new ModelAndView();
+//        andView.setViewName("dashboard");
+//        andView.addObject("test",model);
+//
+//        return andView;
+//    }
 
     @RequestMapping(value = "/userManagement", method = RequestMethod.GET)
     public String user() {

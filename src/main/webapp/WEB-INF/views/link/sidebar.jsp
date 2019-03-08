@@ -59,7 +59,6 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
 
                 HashMap<String,String> pages = (HashMap<String,String>) contextSession.getAttribute(MessageVarList.HTTPSESSION_PAGEMAP);
 
-
                 for(Map.Entry<String, String> pageL : pages.entrySet()) {
                     String key = pageL.getKey();
                     String value = pageL.getValue();
