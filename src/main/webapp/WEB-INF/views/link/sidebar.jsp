@@ -59,13 +59,29 @@ Tip 3: you can change the color of the sidebar with data-background-color="white
 
                 HashMap<String,String> pages = (HashMap<String,String>) contextSession.getAttribute(MessageVarList.HTTPSESSION_PAGEMAP);
 
+                String ID = "side_";
+                int index = 0;
+
                 for(Map.Entry<String, String> pageL : pages.entrySet()) {
                     String key = pageL.getKey();
                     String value = pageL.getValue();
 
-                    out.println("<li class=''>");
-                    out.println("<a href="+"/biller"+key+">");
-                    out.println("<i class='material-icons'>dashboard</i>");
+                    index++;
+
+                    out.println("<li class='' id="+ID+index+" >");
+                    out.println("<a href="+"/biller"+key+" onclick=saveActive("+index+")>" );
+                    if(key.equals("/dashboard")){
+                        out.println("<i class='material-icons'>dashboard</i>");
+                    }else if(key.equals("/report")){
+                        out.println("<i class='material-icons'>timeline</i>");
+                    }else if(key.equals("/userManagement")){
+                        out.println("<i class='material-icons'>person</i>");
+                    }else if(key.equals("/invoice")){
+                        out.println("<i class='material-icons'>content_paste</i>");
+                    }else if(key.equals("/biller")){
+                        out.println("<i class='material-icons'>view_headline</i>");
+                    }
+
                     out.println("<p>"+value+"</p>");
                     out.println("</a>");
                     out.println("</li>");

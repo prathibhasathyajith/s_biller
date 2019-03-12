@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width" />
 
     <%@ include file="link/links_css.jspf" %>
+
 </head>
 
 <body class="sidebar-mini">
@@ -65,4 +66,5 @@
 
 </body>
 <%@ include file="link/links_js.jspf" %>
+<%--<script src="${context}/js/main.js"></script>--%>
 </html>

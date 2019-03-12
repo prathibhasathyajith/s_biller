@@ -41,3 +41,4 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 <script src="${context}/js/demo.js"></script>
 <script src="${context}/js/include.js"></script>
+<script src="${context}/js/main.js"></script>
