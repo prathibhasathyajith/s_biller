@@ -15,7 +15,7 @@
     <%@ include file="link/links_css.jspf" %>
 </head>
 
-<body>
+<body class="sidebar-mini">
     <div class="wrapper">
 
         <!-- side bar-->
