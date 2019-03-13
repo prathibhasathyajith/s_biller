@@ -99,7 +99,9 @@
         setTimeout(function() {
             // after 1000 ms we add the class animated to the login/register card
             $('.card').removeClass('card-hidden');
-        }, 700)
+        }, 100)
+
+        localStorage.setItem('clicked_ID',"");
     });
 </script>
 </html>

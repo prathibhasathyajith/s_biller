@@ -63,7 +63,7 @@ public class WebAdminLoginController {
             userMap.put(inputBean.getUserName(), session.getId());
             contextSession.setAttribute(MessageVarList.HTTPSESSION_USERMAP, userMap);
 
-            andView.setViewName("redirect:/dashboard");
+            andView.setViewName("redirect:/home");
             andView.addObject(inputBean);
 
         }else{

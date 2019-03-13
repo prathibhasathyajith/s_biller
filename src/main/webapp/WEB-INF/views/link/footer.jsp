@@ -4,23 +4,23 @@
             <ul>
                 <li>
                     <a href="#">
-                                    Home
-                                </a>
+                        Home
+                    </a>
                 </li>
                 <li>
                     <a href="#">
-                                    Company
-                                </a>
+                        Company
+                    </a>
                 </li>
                 <li>
                     <a href="#">
-                                    Portfolio
-                                </a>
+                        Portfolio
+                    </a>
                 </li>
                 <li>
                     <a href="#">
-                                    Blog
-                                </a>
+                        Blog
+                    </a>
                 </li>
             </ul>
         </nav>

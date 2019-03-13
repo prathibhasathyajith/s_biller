@@ -40,6 +40,11 @@ public class ViewController {
         return "dashboard";
     }
 
+    @RequestMapping(value = "/home", method = RequestMethod.GET)
+    public String home() {
+        return "home";
+    }
+
 //    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 //    public ModelAndView dashboard(HttpServletRequest request,Model model) {
 //
